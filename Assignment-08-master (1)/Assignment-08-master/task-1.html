@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0
+
+        }
+
+        body{
+            background-color:white;
+            overflow: hidden;
+        }
+
+
+
+        section:nth-child(1){
+            width: fit-content;
+            height: fit-content;
+            display: flex;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+
+        section:nth-child(1)>div{
+            width: fit-content;
+            height: fit-content;
+            padding: 28px 13px;
+        }
+
+        .man{
+            width: 200px;
+        }
+
+        #title{
+            font-size: 97px;
+            position: absolute;
+            top: -190px;
+            padding: 10px 500px;
+            color: darkred;
+        }
+
+        h2{
+            font-size: 35px;
+            font-family: cursive;
+        }
+
+        section:nth-child(2){
+            width: fit-content;
+            height: fit-content;
+            margin: 15px 754px;
+            display: flex;
+        }
+
+        button{
+            left: -180px;
+            width: 100px;
+            height: 50px;
+            padding: 10px 32px;
+            margin: 19px;
+            margin-top: 70px;
+            position: relative;
+            top: 450px;
+            background-color: green;
+            font-size: 22px;
+            font-weight: bold;
+            color: azure;
+        }
+
+    </style>
+</head>
+<body>
+<section>
+    <h1 id="title">JS QUE</h1>
+
+    <div>
+        <h2 id="letter1">A</h2>
+        <img class="man" src="../assets/image/08-47-44-137_512.webp" alt="">
+    </div>
+
+    <div>
+        <h2 id="letter2">B</h2>
+        <img class="man" src="../assets/image/08-47-44-137_512.webp" alt="">
+    </div>
+
+    <div>
+        <h2 id="letter3">C</h2>
+        <img class="man" src="../assets/image/08-47-44-137_512.webp" alt="">
+    </div>
+
+    <div>
+        <h2 id="letter4">D</h2>
+        <img class="man" src="../assets/image/08-47-44-137_512.webp" alt="">
+    </div>
+
+    <div>
+        <h2 id="letter5">E</h2>
+        <img class="man" src="../assets/image/08-47-44-137_512.webp" alt="">
+    </div>
+
+    <div>
+        <h2 id="letter6">F</h2>
+        <img class="man" src="../assets/image/08-47-44-137_512.webp" alt="">
+    </div>
+</section>
+
+<section>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+</section>
+
+
+<script src="jquery-3.7.1.min.js"></script>
+
+<script>
+    var ar = ["A" , "B" , "C" , "D" , "E" , "F"];
+
+    function Move(){
+        let lastVal = ar.pop();
+        ar.unshift(lastVal);
+
+        $("#letter1").text(ar[0]);
+        $("#letter2").text(ar[1]);
+        $("#letter3").text(ar[2]);
+        $("#letter4").text(ar[3]);
+        $("#letter5").text(ar[4]);
+        $("#letter6").text(ar[5]);
+
+    }
+
+    var interval = null;
+
+    $("#start").on("click",() =>{
+        interval  = setInterval(Move,900);
+    });
+
+    $("#stop").on("click",() =>{
+        clearInterval(interval)
+    });
+
+
+</script>
+</body>
+</html>
